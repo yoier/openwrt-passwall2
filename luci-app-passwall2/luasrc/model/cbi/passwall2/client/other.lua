@@ -164,6 +164,10 @@ if has_singbox then
 	s.anonymous = true
 	s.addremove = false
 
+	o = s:option(Flag, "tun_instead_of_tproxy", translate("Use TUN mode instead of TProxy"))
+	o.default = 0
+	o.rmempty = false
+
 	o = s:option(Flag, "sniff_override_destination", translate("Override the connection destination address"), translate("Override the connection destination address with the sniffed domain."))
 	o.default = 0
 	o.rmempty = false

@@ -13,6 +13,7 @@ TMP_PORT_PATH=$TMP_PATH/port
 TMP_ROUTE_PATH=$TMP_PATH/route
 TMP_ACL_PATH=$TMP_PATH/acl
 TMP_IFACE_PATH=$TMP_PATH/iface
+TMP_TUN_PATH=$TMP_PATH/tun
 TMP_PATH2=/tmp/etc/${CONFIG}_tmp
 DNSMASQ_PATH=/etc/dnsmasq.d
 TMP_DNSMASQ_PATH=/tmp/dnsmasq.d/passwall2
@@ -1195,7 +1196,7 @@ SINGBOX_BIN=$(first_type $(config_t_get global_app singbox_file) sing-box)
 
 export V2RAY_LOCATION_ASSET=$(config_t_get global_rules v2ray_location_asset "/usr/share/v2ray/")
 export XRAY_LOCATION_ASSET=$V2RAY_LOCATION_ASSET
-mkdir -p /tmp/etc $TMP_PATH $TMP_BIN_PATH $TMP_SCRIPT_FUNC_PATH $TMP_ID_PATH $TMP_PORT_PATH $TMP_ROUTE_PATH $TMP_ACL_PATH $TMP_IFACE_PATH $TMP_PATH2
+mkdir -p /tmp/etc $TMP_PATH $TMP_BIN_PATH $TMP_SCRIPT_FUNC_PATH $TMP_ID_PATH $TMP_PORT_PATH $TMP_ROUTE_PATH $TMP_ACL_PATH $TMP_IFACE_PATH $TMP_TUN_PATH $TMP_PATH2
 
 arg1=$1
 shift

@@ -1414,6 +1414,9 @@ msgstr "端口跳跃时间 "
 msgid "Additional ports for hysteria hop"
 msgstr "端口跳跃额外端口"
 
+msgid "Use TUN mode instead of TProxy"
+msgstr "使用 TUN 模式代替 TProxy"
+
 msgid "Override the connection destination address"
 msgstr "覆盖连接目标地址"
 
