@@ -98,6 +98,7 @@ jobs:
         run: |
           wget ${{ env.url_sdk }}
           file_name=$(echo ${{env.url_sdk}} | awk -F/ '{print $NF}')
+          rm -rf sdk
           mkdir sdk && tar -xJf $file_name -C ./sdk --strip-components=1
           cd sdk
           echo "src-git base https://github.com/openwrt/openwrt.git;openwrt-21.02" > feeds.conf
