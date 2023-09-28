@@ -84,15 +84,15 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
 
-      - name: Cache openwrt SDK
-        id: cache-sdk
-        uses: actions/cache@v3
-        with:
-          path: sdk
-          key: openwrt-sdk-23.05-rc3-x86_64
+      #- name: Cache openwrt SDK
+      #  id: cache-sdk
+      #  uses: actions/cache@v3
+      #  with:
+      #    path: sdk
+      #    key: openwrt-sdk-23.05-rc3-x86_64
 
       - name: Initialization environment
-        if: steps.cache-sdk.outputs.cache-hit != 'true'
+        #if: steps.cache-sdk.outputs.cache-hit != 'true'
         env:
           url_sdk: https://archive.openwrt.org/releases/21.02.5/targets/x86/64/openwrt-sdk-21.02.5-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
         run: |
