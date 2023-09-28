@@ -13,12 +13,12 @@ on:
         default: 'false'
   push:
     branches:
-      - 'main'
+      - 'tun_dev'
     paths:
       - 'luci-app-passwall2/Makefile'
 env:
   TZ: Asia/Shanghai
-  passwall2: ${{ github.repository }}
+  passwall2: xiaorouji/openwrt-passwall2
   packages: xiaorouji/openwrt-passwall-packages
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@main
         with:
           fetch-depth: 0
-          ref: 'main'
+          ref: 'tun_dev'
 
       - name: Check version
         id: check_version
@@ -51,17 +51,17 @@ jobs:
           echo "has_update: ${has_update}"
 
       - name: Prepare release
-        if: steps.check_version.outputs.has_update == 'true'
+        #if: steps.check_version.outputs.has_update == 'true'
         run: |
           echo "## :mega:Update content" >> release.txt
-          echo "![](https://img.shields.io/github/downloads/${{ env.passwall2 }}/${{steps.check_version.outputs.latest_version}}/total?style=flat-square)" >> release.txt
+          #echo "![](https://img.shields.io/github/downloads/${{ env.passwall2 }}/${{steps.check_version.outputs.latest_version}}/total?style=flat-square)" >> release.txt
           echo "### Passwall2 Info" >> release.txt
           echo "**:minidisc: Passwall2 Version: ${{steps.check_version.outputs.latest_version}}**" >> release.txt
           echo "**:gear: OpenWrt SDK Version: 23.05-rc3**" >> release.txt
           touch release.txt
 
       - name: Generate new tag & release
-        if: steps.check_version.outputs.has_update == 'true'
+        #if: steps.check_version.outputs.has_update == 'true'
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,7 +73,7 @@ jobs:
   job_build_passwall2:
     name: Build passwall2
     needs: job_check
-    if: needs.job_check.outputs.has_update == 'true'
+    #if: needs.job_check.outputs.has_update == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Install packages
@@ -167,7 +167,7 @@ jobs:
 
 
   job_auto_compile:
-    if: needs.job_check.outputs.has_update == 'true'
+    if: needs.job_check.outputs.has_update == 'true0'
     needs: job_check
     runs-on: ubuntu-latest
     name: build (${{ matrix.platform }})
