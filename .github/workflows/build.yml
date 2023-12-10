@@ -104,7 +104,7 @@ jobs:
           key: openwrt-sdk-23.05-rc3-x86_64
 
       - name: Initialization environment
-        if: steps.cache-sdk.outputs.cache-hit != 'true'
+        #if: steps.cache-sdk.outputs.cache-hit != 'true'
         env:
           url_sdk: https://downloads.openwrt.org/releases/23.05.0/targets/x86/64/openwrt-sdk-23.05.0-x86-64_gcc-12.3.0_musl.Linux-x86_64.tar.xz
         run: |
