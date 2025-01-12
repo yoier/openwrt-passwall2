@@ -36,7 +36,7 @@ jobs:
         id: check_version
         env:
           url_tags: https://api.github.com/repos/${{ github.repository }}/tags
-          url_lastest_version: https://raw.githubusercontent.com/${{ github.repository }}/refs/heads/main/luci-app-passwall2/Makefile
+          url_lastest_version: https://raw.githubusercontent.com/${{ env.passwall2 }}/refs/heads/main/luci-app-passwall2/Makefile
         run: |
           cd luci-app-passwall2
           latest_version=$(wget -qO- -t1 -T2 ${{env.url_lastest_version}} | awk -F ':=' '/PKG_VERSION|PKG_RELEASE/ {print $2}' | sed ':a;N;s/\$(PKG_VERSION)-//;s/\n$//;s/\n/-/;ba')
