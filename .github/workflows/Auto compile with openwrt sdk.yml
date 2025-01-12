@@ -35,7 +35,7 @@ jobs:
       - name: Check version
         id: check_version
         env:
-          url_tags: https://api.github.com/repos/${{ env.passwall2 }}/tags
+          url_tags: https://api.github.com/repos/${{ github.repository }}/tags
         run: |
           cd luci-app-passwall2
           latest_version=$(awk -F ':=' '/PKG_VERSION|PKG_RELEASE/ {print $2}' Makefile | sed ':a;N;s/\$(PKG_VERSION)-//;s/\n$//;s/\n/-/;ba')
